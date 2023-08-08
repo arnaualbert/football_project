@@ -14,6 +14,5 @@ app.register_blueprint(app_players_controller)
 app.register_blueprint(app_league_controller)
 
 
-# print(app.url_map)
-if __name__ == "__main__":
+if __name__ == "__main__":    
     app.run(debug=True)

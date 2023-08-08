@@ -36,3 +36,19 @@ class PlayerDAO:
     cursor = self.connection.cursor()
     cursor.execute("DELETE FROM players WHERE id = %s", (id,))
     self.connection.commit()
+
+  def get_players_by_team(self, team_id):
+    cursor = self.connection.cursor()
+    cursor.execute("SELECT * FROM players WHERE team_id = %s", (team_id,))
+    players = []
+    for row in cursor:
+      players.append(Player(row[0], row[1], row[2], row[3], row[4]))
+    return players
+  
+  def get_players_by_position(self, position):
+    cursor = self.connection.cursor()
+    cursor.execute("SELECT * FROM players WHERE position = %s", (position,))
+    players = []
+    for row in cursor:
+      players.append(Player(row[0], row[1], row[2], row[3], row[4]))
+    return players

@@ -12,7 +12,7 @@ def object_to_dict(obj)->dict:
     return vars(obj)
 
 
-def get_env_dict():
+def get_env_dict()->dict:
     user: str | None  = os.getenv("DB_USER")
     password: str | None  = os.getenv("DB_PASS")
     host: str | None  = os.getenv("DB_HOST")

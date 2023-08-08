@@ -13,6 +13,13 @@ for player in players:
     p = object_to_dict(player)
     print(p)
 
+
+players_by_team = player_dao.get_players_by_team(1)
+for player in players_by_team:
+    p = object_to_dict(player)
+    print(p)
+
+
 teams = team_dao.get_all_teams()
 for team in teams:
     t = object_to_dict(team)

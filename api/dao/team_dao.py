@@ -48,3 +48,11 @@ class TeamDAO:
     cursor = self.connection.cursor()
     cursor.execute("DELETE FROM teams WHERE id = %s", (id,))
     self.connection.commit()
+
+  def get_teams_by_league(self, league_id):
+    cursor = self.connection.cursor()
+    cursor.execute("SELECT * FROM teams WHERE league_id = %s", (league_id,))
+    teams = []
+    for row in cursor:
+      teams.append(Team(row[0], row[1], row[2], row[3], row[4]))
+    return teams
