@@ -12,3 +12,13 @@ def get_all_players():
         players_list_object: list[Player] = player_dao.get_all_players()
         player_list_dict: dict[Player] = [object_to_dict(player) for player in players_list_object]
         return player_list_dict
+    
+
+@app_players_controller.route("/get_players_by_team", methods=['GET'])
+def get_players_by_team():
+    if request.method == 'GET':
+        get_team = request.get_json()
+        team_id = get_team['team_id']
+        players_list_object: list[Player] = player_dao.get_players_by_team(int(team_id))
+        player_list_dict: dict[Player] = [object_to_dict(player) for player in players_list_object]
+        return player_list_dict
